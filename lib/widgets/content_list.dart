@@ -6,29 +6,25 @@ import 'package:vusqa_application/classes/list_item.dart';
 
 class ContentList extends StatelessWidget {
 
-  List<ListItem> post_list;
+  List<ListItem> item_list;
 
-  ContentList({this.post_list});
+  ContentList({this.item_list});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200.0,
+      color: Colors.white,
+      height: 280.0,
       child: ListView(
-        children: <Widget>[
-          ListTile(
-            contentPadding: EdgeInsets.all(0.0),
-            title: Text('반갑습니다'),
-          ),
-          ListTile(
-            contentPadding: EdgeInsets.all(0.0),
-            title: Text('반갑습니다'),
-          ),
-          ListTile(
-            contentPadding: EdgeInsets.all(0.0),
-            title: Text('반갑습니다'),
-          ),
-        ],
+        physics: NeverScrollableScrollPhysics(),
+        children: ListTile.divideTiles(
+          context: context,
+          tiles: item_list.map((x) {
+            return ListTile(
+              title: Text(x.title),
+            );
+          }).toList()
+        ).toList(),
       ),
     );
   }

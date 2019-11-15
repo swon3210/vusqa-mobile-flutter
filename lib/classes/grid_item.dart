@@ -1,5 +1,4 @@
 class GridItem {
-
   String title;
   String image_link;
   String post_link;

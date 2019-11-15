@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:vusqa_application/classes/image_banner_item.dart';
 
 class ImageBanner extends StatelessWidget {
 
-  String ImageSrc;
+  List<ImageBannerItem> image_banner_list;
 
-  ImageBanner({this.ImageSrc});
+  ImageBanner({this.image_banner_list});
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Row(
       children: <Widget>[
         // 이거 따로 클래스를 만들어야 할까?
-
+        ...image_banner_list.map((x) {
+          return Expanded(
+            child: Image.network(x.image_link)
+          );
+        }).toList()
       ],
     );
   }
