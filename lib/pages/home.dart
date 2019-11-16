@@ -27,8 +27,6 @@ class _HomeState extends State<Home> {
 
     var div_height = MediaQuery.of(context).size.height;
 
-    var height = div_height / 2 * 0.3;
-
     Color PrimaryColor = Colors.white;
 
 
@@ -36,42 +34,30 @@ class _HomeState extends State<Home> {
       length: 5,
       child: Scaffold(
         backgroundColor: Colors.grey[100],
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(170.0),
-          child: AppBar(
-            elevation: 0.5,
-            automaticallyImplyLeading: false,
-//        leading: Image.asset('assets/img/logo.jpg'),
-            title: Container(
-              margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
-              height: 150.0,
-              child: TextField(
-                decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.indigo[200], width: 2.0)
+          body: NestedScrollView(
+            headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+              return <Widget>[
+                SliverAppBar(
+                  backgroundColor: Colors.white,
+                  automaticallyImplyLeading: false,
+                  expandedHeight: 120.0,
+                  floating: true,
+                  pinned: true,
+                  title: TextField(
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.indigo[200], width: 2.0)
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.indigo, width: 2.0)
+                      ),
+                      hintText: "Search...",
+                      hintStyle: TextStyle(
+                        color: Colors.grey
+                      ),
+                    )
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.indigo, width: 2.0)
-                  ),
-                  hintText: "Search...",
-                  hintStyle: TextStyle(
-                    color: Colors.grey
-                  ),
-//                    prefix: Container(
-//                      padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-//                      child: Image.asset('assets/img/logo.jpg')
-//                    )
-                ),
-              ),
-            ),
-            centerTitle: true,
-            backgroundColor: PrimaryColor,
-            bottom: PreferredSize(
-              preferredSize: Size.fromHeight(10.0),
-              child: Column(
-                children: <Widget>[
-                  RealtimeSearchKeywords(),
-                  TabBar(
+                  bottom: TabBar(
                     isScrollable: true,
                     indicatorColor: Colors.grey,
                     indicatorWeight: 6.0,
@@ -141,24 +127,38 @@ class _HomeState extends State<Home> {
                         )
                       )
                     ],
-                  ),
-                ],
+                  )
+                ),
+              ];
+            },
+            body: Center(
+              child: Container(
+                child: PageView.builder(
+                  controller: section_controller,
+                  itemBuilder: (context, position) {
+                    return section_list[position];
+                  },
+                  itemCount: section_list.length,
+                  onPageChanged: (page) {
+                    print(page);
+                  },
+                )
               ),
-            )
+            ),
           ),
-        ),
-        body: Container(
-          child: PageView.builder(
-            controller: section_controller,
-            itemBuilder: (context, position) {
-              return section_list[position];
-            },
-            itemCount: section_list.length,
-            onPageChanged: (page) {
-              print(page);
-            },
-          ),
-        )
+
+//        body: Container(
+//          child: PageView.builder(
+//            controller: section_controller,
+//            itemBuilder: (context, position) {
+//              return section_list[position];
+//            },
+//            itemCount: section_list.length,
+//            onPageChanged: (page) {
+//              print(page);
+//            },
+//          ),
+//        )
       ),
     );
   }
