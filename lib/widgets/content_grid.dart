@@ -13,15 +13,28 @@ class ContentGrid extends StatelessWidget {
       color: Colors.white,
       child: Column(
         children: <Widget>[
-          Text('hey!'),
           Container(
-            height: 700.0,
+            alignment: Alignment.centerLeft,
+            margin: EdgeInsets.only(left: 16.0, top: 5.0),
+            padding: EdgeInsets.all(12.0),
+            child: Text(
+              'Media Today',
+              style: TextStyle(
+                fontSize: 15.0,
+                fontWeight: FontWeight.bold
+              ),
+            ),
+          ),
+          Container(
+            height: 420.0,
             child: GridView.builder(
+              padding: EdgeInsets.all(0.0),
               physics: NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2
               ),
               itemCount: grid_item_list.length,
+
               itemBuilder: (BuildContext context, int index) {
                 return Column(
                   children: <Widget>[
@@ -29,26 +42,27 @@ class ContentGrid extends StatelessWidget {
                       elevation: 0.0,
                       child: Column(
                         children: <Widget>[
-                          Hero(
-                            tag: 'something',
-                            child: Material(
-                              color: Colors.white,
-                              child: InkWell(
-                                onTap: () {},
-                                child: GridTile(
-                                  child: Container(
-                                    child: ClipRRect(
-                                      borderRadius: new BorderRadius.circular(4.0),
-                                      child: Image.network(
-                                          grid_item_list[index].image_link
-                                      ),
-                                    ),
+                          GridTile(
+                            child: Column(
+                              children: <Widget>[
+                                ClipRRect(
+                                  borderRadius: new BorderRadius.circular(4.0),
+                                  child: Image.network(
+                                    grid_item_list[index].image_link,
+                                    height: 157.0,
                                   ),
+                                ),
+                                Container(
+                                  child: Text(
+                                    grid_item_list[index].title,
+                                  ),
+                                  alignment: Alignment.centerLeft,
+                                  padding: EdgeInsets.all(4.0),
+                                  margin: EdgeInsets.only(left: 24),
                                 )
-                              ),
+                              ],
                             ),
                           ),
-                          Text('hey!')
                         ],
                       ),
                     ),

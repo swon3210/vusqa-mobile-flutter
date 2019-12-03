@@ -41,6 +41,13 @@ class _NewsSectionState extends State<NewsSection> {
     ListItem(title: 'Carabineros entrega balance desde inicio de crisis: 9 mil arrestos por desórdenes y 4.900 por saqueo', post_link: 'link2', image_src: 'https://images.unsplash.com/photo-1571204829887-3b8d69e4094d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'),
   ];
 
+  List<ListItem> news_list_with_image2 = [
+    ListItem(title: 'Carabineros entrega balance desde inicio de crisis: 9 mil arrestos por desórdenes y 4.900 por saqueo', post_link: 'link1', image_src: 'https://images.unsplash.com/photo-1571204829887-3b8d69e4094d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'),
+    ListItem(title: 'Carabineros entrega balance desde inicio de crisis: 9 mil arrestos por desórdenes y 4.900 por saqueo', post_link: 'link2', image_src: 'https://images.unsplash.com/photo-1571204829887-3b8d69e4094d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'),
+    ListItem(title: 'Carabineros entrega balance desde inicio de crisis: 9 mil arrestos por desórdenes y 4.900 por saqueo', post_link: 'link2', image_src: 'https://images.unsplash.com/photo-1571204829887-3b8d69e4094d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'),
+    ListItem(title: 'Carabineros entrega balance desde inicio de crisis: 9 mil arrestos por desórdenes y 4.900 por saqueo', post_link: 'link2', image_src: 'https://images.unsplash.com/photo-1571204829887-3b8d69e4094d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'),
+  ];
+
   WeatherInfo local_weather_info = WeatherInfo(location: 'Santiago', temperature: '32 C', weather: 'Sunny');
 
   List<GridItem> news_grid_list = [
@@ -119,6 +126,8 @@ class _NewsSectionState extends State<NewsSection> {
             ContentList(item_list: news_list2),
             SizedBox(height: 10.0,),
             ContentGrid(grid_item_list: news_grid_list),
+            SizedBox(height: 10.0,),
+            ContentListWithImage(item_list: news_list_with_image2, section_title: 'Top Videos',),
             SizedBox(height: 10.0,),
             CategoryList(category_list: news_gategory_list),
 
