@@ -14,12 +14,12 @@ import 'package:vusqa_application/classes/category_item.dart';
 import 'package:vusqa_application/classes/image_banner_item.dart';
 
 
-class NewsSection2 extends StatefulWidget {
+class NewsSection3 extends StatefulWidget {
   @override
-  _NewsSection2State createState() => _NewsSection2State();
+  _NewsSection3State createState() => _NewsSection3State();
 }
 
-class _NewsSection2State extends State<NewsSection2> {
+class _NewsSection3State extends State<NewsSection3> {
 
   // 리스트랑 그리드 안 움직이는 버전도 만들어야겠다.
 
@@ -35,35 +35,35 @@ class _NewsSection2State extends State<NewsSection2> {
 
   List<GridItem> news_grid_list = [
     GridItem(
-        title: 'Lorem Ipsum',
-        image_link: 'https://images.unsplash.com/photo-1546146830-2cca9512c68e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80',
-        post_link: 'link',
-        is_video: false
+      title: 'Lorem Ipsum',
+      image_link: 'https://images.unsplash.com/photo-1546146830-2cca9512c68e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80',
+      post_link: 'link',
+      is_video: false
     ),
     GridItem(
-        title: 'Lorem Ipsum',
-        image_link: 'https://images.unsplash.com/photo-1546146830-2cca9512c68e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80',
-        post_link: 'link',
-        is_video: false
+      title: 'Lorem Ipsum',
+      image_link: 'https://images.unsplash.com/photo-1546146830-2cca9512c68e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80',
+      post_link: 'link',
+      is_video: false
     )
   ];
 
   List<CategoryItem> news_gategory_list = [
     CategoryItem(
-        category_name: 'News',
-        category_link: 'link'
+      category_name: 'News',
+      category_link: 'link'
     ),
     CategoryItem(
-        category_name: 'Magazine',
-        category_link: 'link'
+      category_name: 'Magazine',
+      category_link: 'link'
     ),
     CategoryItem(
-        category_name: 'TV',
-        category_link: 'link'
+      category_name: 'TV',
+      category_link: 'link'
     ),
     CategoryItem(
-        category_name: 'Series',
-        category_link: 'link'
+      category_name: 'Series',
+      category_link: 'link'
     )
   ];
 
@@ -86,15 +86,15 @@ class _NewsSection2State extends State<NewsSection2> {
         child: Column(
           children: <Widget>[
             SizedBox(height: 10.0,),
-            ContentGrid(grid_item_list: news_grid_list),
-            SizedBox(height: 10.0,),
             ContentList(item_list: news_list),
             SizedBox(height: 10.0,),
-            ImageBanner(image_banner_list: news_image_banner_list),
+            ContentGrid(grid_item_list: news_grid_list),
+            SizedBox(height: 10.0,),
+            ContentList(item_list: news_list2),
             SizedBox(height: 10.0,),
             CategoryList(category_list: news_gategory_list),
             SizedBox(height: 10.0,),
-            ContentList(item_list: news_list2),
+            ImageBanner(image_banner_list: news_image_banner_list),
           ],
         ),
       ),

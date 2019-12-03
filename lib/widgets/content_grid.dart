@@ -10,40 +10,54 @@ class ContentGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 220.0,
       color: Colors.white,
-      padding: EdgeInsets.all(8.0),
-      child: GridView.builder(
-        physics: NeverScrollableScrollPhysics(),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2
-        ),
-        itemBuilder: (BuildContext context, int index) {
-          return Card(
-            elevation: 0.0,
-            child: Hero(
-              tag: 'something',
-              child: Material(
-                color: Colors.white,
-                child: InkWell(
-                  onTap: () {},
-                  child: GridTile(
-                    child: Column(
-                      children: <Widget>[
-                        Image.network('https://images.unsplash.com/photo-1502951682449-e5b93545d46e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=966&q=80'),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text('Desciption'),
-                        )
-                      ],
-                    ),
-                  )
-                ),
+      child: Column(
+        children: <Widget>[
+          Text('hey!'),
+          Container(
+            height: 700.0,
+            child: GridView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2
               ),
+              itemCount: grid_item_list.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Column(
+                  children: <Widget>[
+                    Card(
+                      elevation: 0.0,
+                      child: Column(
+                        children: <Widget>[
+                          Hero(
+                            tag: 'something',
+                            child: Material(
+                              color: Colors.white,
+                              child: InkWell(
+                                onTap: () {},
+                                child: GridTile(
+                                  child: Container(
+                                    child: ClipRRect(
+                                      borderRadius: new BorderRadius.circular(4.0),
+                                      child: Image.network(
+                                          grid_item_list[index].image_link
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              ),
+                            ),
+                          ),
+                          Text('hey!')
+                        ],
+                      ),
+                    ),
+                  ],
+                );
+              }
             ),
-          );
-        },
-        itemCount: grid_item_list.length,
+          ),
+        ],
       ),
     );
   }

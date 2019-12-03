@@ -47,6 +47,9 @@ flutter:
     # img
     - assets/img/logo_with_text.jpg
     - assets/img/logo.jpg
+    - assets/img/logo-new.png
+    - assets/img/sun.png
+
 
     # svg
     - assets/svg/logo_with_text.svg

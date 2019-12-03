@@ -24,7 +24,7 @@ class CategoryList extends StatelessWidget {
                 )
               ),
               height: 50.0,
-              width: 102.0,
+              width: MediaQuery.of(context).size.width * (1 / category_list.length),
               padding: EdgeInsets.all(10.0),
               child: Card(
                 elevation: 0.0,

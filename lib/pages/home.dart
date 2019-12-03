@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:vusqa_application/pages/section/news.dart';
 import 'package:vusqa_application/pages/section/news2.dart';
+import 'package:vusqa_application/pages/section/news3.dart';
 import 'package:vusqa_application/widgets/realtime_search_keywords.dart';
 
 
@@ -22,12 +24,14 @@ class _HomeState extends State<Home> {
 
     final List<Widget> section_list = [
       NewsSection(),
-      NewsSection2()
+      NewsSection2(),
+      NewsSection3()
     ];
 
     var div_height = MediaQuery.of(context).size.height;
 
-    Color PrimaryColor = Colors.white;
+    Color PrimaryColor = Color(0xff40DF6B);
+    Color LightGrey = Color(0xffA9A9A9);
 
 
     return DefaultTabController(
@@ -40,93 +44,124 @@ class _HomeState extends State<Home> {
                 SliverAppBar(
                   backgroundColor: Colors.white,
                   automaticallyImplyLeading: false,
-                  expandedHeight: 120.0,
+                  expandedHeight: 100.0,
                   floating: true,
                   pinned: true,
-                  title: TextField(
-                    decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.indigo[200], width: 2.0)
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.indigo, width: 2.0)
-                      ),
-                      hintText: "Search...",
-                      hintStyle: TextStyle(
-                        color: Colors.grey
-                      ),
-                    )
-                  ),
-                  bottom: TabBar(
-                    isScrollable: true,
-                    indicatorColor: Colors.grey,
-                    indicatorWeight: 6.0,
-                    onTap: (index) {
-                      setState(() {
-                        switch (index) {
-                          case 0:
-                            PrimaryColor = Color(0xffff57222);
-                            break;
-                          case 1:
-                            PrimaryColor = Color(0xff3f51b5);
-                            break;
-                          default:
-                            break;
-                        }
-                      });
-                    },
-                    tabs: <Widget>[
-                      Tab(
-                        child: Container(
-                          child: Text(
-                            'News',
-                            style: TextStyle(
-                              color: Colors.grey, fontSize: 15.0
-                            ),
-                          ),
-                        )
-                      ),
-                      Tab(
-                        child: Container(
-                          child: Text(
-                            'Ranking',
-                            style: TextStyle(
-                                color: Colors.grey, fontSize: 15.0
-                            ),
-                          ),
-                        )
-                      ),
-                      Tab(
-                        child: Container(
-                          child: Text(
-                            'Culture',
-                            style: TextStyle(
-                                color: Colors.grey, fontSize: 15.0
-                            ),
-                          ),
-                        )
-                      ),
-                      Tab(
-                        child: Container(
-                          child: Text(
-                            'TV',
-                            style: TextStyle(
-                              color: Colors.grey, fontSize: 15.0
-                            ),
-                          ),
-                        )
-                      ),
-                      Tab(
-                        child: Container(
-                          child: Text(
-                          'Shopping',
-                           style: TextStyle(
-                              color: Colors.grey, fontSize: 15.0
-                            ),
-                          ),
-                        )
+                  title: Container(
+                    padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                    height: 45.0,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.only(top: 10.0),
+                        prefixIcon: Image.asset('assets/img/logo-new.png'),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: PrimaryColor, width: 2.0)
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: PrimaryColor, width: 2.0)
+                        ),
+                        hintText: "Search...",
+                        hintStyle: TextStyle(
+                          fontSize: 15.0,
+                          color: Colors.grey
+                        ),
                       )
-                    ],
+                    ),
+                  ),
+                  bottom: PreferredSize(
+                    preferredSize: Size.fromHeight(100.0),
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 30.0),
+                      child: TabBar(
+                        labelColor: PrimaryColor,
+                        unselectedLabelColor: LightGrey,
+                        isScrollable: true,
+                        indicatorColor: PrimaryColor,
+//                        labelPadding: EdgeInsets.symmetric(horizontal: 0.0),
+                        onTap: (index) {
+                          setState(() {
+                            switch (index) {
+                              case 0:
+                                PrimaryColor = Color(0xffff57222);
+                                break;
+                              case 1:
+                                PrimaryColor = Color(0xff3f51b5);
+                                break;
+                              default:
+                                break;
+                            }
+                          });
+                        },
+                        tabs: <Widget>[
+                          Container(
+                            child: Tab(
+                              child: Container(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  'Headline'.toUpperCase(),
+
+                                  style: TextStyle(
+                                    fontSize: 12.0,
+                                  ),
+                                ),
+                              )
+                            ),
+                          ),
+                          Container(
+                            child: Tab(
+                              child: Container(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  'World'.toUpperCase(),
+                                  style: TextStyle(
+                                      fontSize: 12.0
+                                  ),
+                                ),
+                              )
+                            ),
+                          ),
+                          Container(
+                            child: Tab(
+                              child: Container(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  'Sports'.toUpperCase(),
+                                  style: TextStyle(
+                                      fontSize: 12.0
+                                  ),
+                                ),
+                              )
+                            ),
+                          ),
+                          Container(
+                            child: Tab(
+                              child: Container(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  'Money'.toUpperCase(),
+                                  style: TextStyle(
+                                    fontSize: 12.0
+                                  ),
+                                ),
+                              )
+                            ),
+                          ),
+                          Container(
+                            child: Tab(
+                              child: Container(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                'Movie'.toUpperCase(),
+                                 style: TextStyle(
+                                    fontSize: 12.0
+                                  ),
+                                ),
+                              )
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   )
                 ),
               ];

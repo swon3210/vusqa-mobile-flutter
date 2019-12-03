@@ -13,8 +13,13 @@ class ImageBanner extends StatelessWidget {
       children: <Widget>[
         // 이거 따로 클래스를 만들어야 할까?
         ...image_banner_list.map((x) {
-          return Expanded(
-            child: Image.network(x.image_link)
+          return Container(
+            child: Image.network(
+              x.image_link,
+              height: 100.0,
+              width: MediaQuery.of(context).size.width,
+              fit: BoxFit.fitWidth,
+            )
           );
         }).toList()
       ],
