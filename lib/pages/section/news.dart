@@ -129,8 +129,6 @@ class _NewsSectionState extends State<NewsSection> {
             SizedBox(height: 10.0,),
             ContentListWithImage(item_list: news_list_with_image2, section_title: 'Top Videos',),
             SizedBox(height: 10.0,),
-            CategoryList(category_list: news_gategory_list),
-
           ],
         ),
       ),
