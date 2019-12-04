@@ -20,7 +20,6 @@ class ContentList extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 0.0),
         physics: NeverScrollableScrollPhysics(),
         children: ListTile.divideTiles(
-
           context: context,
           tiles: item_list.map((x) {
             return ListTile(

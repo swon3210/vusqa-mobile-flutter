@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:vusqa_application/pages/section/news.dart';
 import 'package:vusqa_application/pages/section/news2.dart';
 import 'package:vusqa_application/pages/section/news3.dart';
+import 'package:vusqa_application/pages/section/ranking_page.dart';
 import 'package:vusqa_application/widgets/realtime_search_keywords.dart';
 
 
@@ -24,8 +25,7 @@ class _HomeState extends State<Home> {
 
     final List<Widget> section_list = [
       NewsSection(),
-      NewsSection2(),
-      NewsSection3()
+      RankingPage()
     ];
 
     var div_height = MediaQuery.of(context).size.height;
@@ -44,12 +44,11 @@ class _HomeState extends State<Home> {
                 SliverAppBar(
                   backgroundColor: Colors.white,
                   automaticallyImplyLeading: false,
-                  expandedHeight: 100.0,
                   floating: true,
                   pinned: true,
                   title: Container(
+                    height: 45,
                     padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    height: 45.0,
                     child: TextField(
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(top: 10.0),
@@ -69,9 +68,9 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   bottom: PreferredSize(
-                    preferredSize: Size.fromHeight(100.0),
+                    preferredSize: Size.fromHeight(48),
                     child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 30.0),
+                      padding: EdgeInsets.symmetric(horizontal: 27.0),
                       child: TabBar(
                         labelColor: PrimaryColor,
                         unselectedLabelColor: LightGrey,

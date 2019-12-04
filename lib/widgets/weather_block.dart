@@ -11,6 +11,8 @@ class WeatherBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Card(
+        elevation: 0.0,
+        margin: EdgeInsets.all(0.0),
         child: ListTile(
           contentPadding: EdgeInsets.all(14.0),
           leading: Container(

@@ -26,7 +26,7 @@ class ContentGrid extends StatelessWidget {
             ),
           ),
           Container(
-            height: 420.0,
+            height: 400.0,
             child: GridView.builder(
               padding: EdgeInsets.all(0.0),
               physics: NeverScrollableScrollPhysics(),
@@ -52,14 +52,14 @@ class ContentGrid extends StatelessWidget {
                                     height: 157.0,
                                   ),
                                 ),
-                                Container(
-                                  child: Text(
-                                    grid_item_list[index].title,
-                                  ),
-                                  alignment: Alignment.centerLeft,
-                                  padding: EdgeInsets.all(4.0),
-                                  margin: EdgeInsets.only(left: 24),
-                                )
+//                                Container(
+//                                  child: Text(
+//                                    grid_item_list[index].title,
+//                                  ),
+//                                  alignment: Alignment.centerLeft,
+//                                  padding: EdgeInsets.all(4.0),
+//                                  margin: EdgeInsets.only(left: 24),
+//                                )
                               ],
                             ),
                           ),

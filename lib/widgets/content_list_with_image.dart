@@ -33,7 +33,7 @@ class ContentListWithImage extends StatelessWidget {
           ) : Container(),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            height: section_title != null ? 340.0 : 170,
+            height: section_title != null ? 400.0 : 200,
             child: ListView(
               padding: EdgeInsets.symmetric(vertical: 0.0),
               physics: NeverScrollableScrollPhysics(),
@@ -44,7 +44,11 @@ class ContentListWithImage extends StatelessWidget {
                     margin: EdgeInsets.only(bottom: 10.0),
                     child: ListTile(
                       leading: ClipRRect(
-                        child: Image.network(x.image_src),
+                        child: Image.network(
+                          x.image_src,
+                          width: 100,
+                          fit: BoxFit.fill,
+                        ),
                         borderRadius: BorderRadius.circular(2.0),
 
                       ),
